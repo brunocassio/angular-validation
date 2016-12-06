@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- CSS ===================== -->
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap-theme.css">
+    <!-- CSS ===================== -->
+
+    <!-- JS ===================== -->
+    <script src="../node_modules/angular/angular.js"></script>
+    <script src="config/app.js"></script>
+    <script src="index.controller.js"></script>
+    <!-- JS ===================== -->
+</head>
+<body ng-app="validationApp" ng-controller="IndexController as vm">
+<div class="container">
+    <div class="col-sm-8 col-sm-offset-2">
+        <div class="page-header"><h1>AngularJS Form Validation</h1></div>
+        <form name="userForm" ng-submit="vm.submitForm(userForm.$valid)" novalidate>
+            <div class="form-group">
+                <label>Name</label>
+                <input type="text" name="name" class="form-control" ng-model="name" required>
+            </div>
+
+            <div class="form-group">
+                <label>Username</label>
+                <input type="text" name="username" class="form-control" ng-model="username" ng-minlength="3" ng-maxlength="8">
+            </div>
+
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" name="email" class="form-control" ng-model="email">
+            </div>
+
+            <button type="submit" class="btn btn-primary" ng-disabled="userForm.$invalid">Submit</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>
